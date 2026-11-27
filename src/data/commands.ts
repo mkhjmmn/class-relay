@@ -214,7 +214,6 @@ export function sendNextWave(s: DemoState, absenceId: string, excludeSubIds: str
   const a = s.absences.find((x) => x.id === absenceId)!;
   if (!["matching", "offered"].includes(a.status)) return 0;
   const ctx = matchContext(s, a, a.startDate);
-  const t0 = Date.now();
   const { ranked, blocked } = rankCandidates(ctx);
   const already = new Set(s.offers.filter((o) => o.absence_id === a.id).map((o) => o.substitute_id));
   const fresh = ranked.filter((c) => !already.has(c.substitute.id) && !excludeSubIds.includes(c.substitute.id));
@@ -262,7 +261,7 @@ export function sendNextWave(s: DemoState, absenceId: string, excludeSubIds: str
     ],
     output: sent ? `Wave ${a.currentWave}: ${sent} offers sent` : "No eligible substitutes left: escalated",
     confidence: ranked.length ? 0.9 : 0.4,
-    latencyMs: Math.max(1, Date.now() - t0),
+    latencyMs: 12 + Math.round(ctx.substitutes.length / 10),
     costUsd: 0,
     model: "rules-engine (deterministic)",
     mode: "sample",
