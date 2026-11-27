@@ -45,7 +45,7 @@ import type { DemoState } from "./state";
 
 export interface Actor {
   userId: string;
-  role: Role | "system";
+  role: Role | "system" | "anonymous";
   name: string;
 }
 export const SYSTEM: Actor = { userId: "system", role: "system", name: "ClassRelay automation" };
@@ -57,7 +57,7 @@ const fail = (error: string, details?: string[]): Result<never> => ({ ok: false,
 export class ForbiddenError extends Error {}
 /** Server-side style role gate, also applied by API routes. */
 export function requireRole(actor: Actor, roles: (Role | "system")[]) {
-  if (!roles.includes(actor.role)) throw new ForbiddenError(`Role ${actor.role} may not perform this action`);
+  if (actor.role === "anonymous" || !roles.includes(actor.role)) throw new ForbiddenError(`Role ${actor.role} may not perform this action`);
 }
 
 // ---------- helpers ----------

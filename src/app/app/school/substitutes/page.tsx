@@ -1,6 +1,11 @@
 "use client";
-import { StubPage } from "@/components/shell/StubPage";
+import { Hydrated } from "@/components/shell/Page";
+import { SchoolSubstitutes } from "@/components/school/SchoolViews";
 
 export default function Page() {
-  return <StubPage title="Substitutes" purpose="Substitutes who worked at your school; rate them." points={["History and ratings", "Rate after each assignment", "Exclusion list"]} />;
+  return (
+    <Hydrated>
+      <SchoolSubstitutes />
+    </Hydrated>
+  );
 }

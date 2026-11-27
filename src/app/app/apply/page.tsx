@@ -1,6 +1,6 @@
 "use client";
-import { StubPage } from "@/components/shell/StubPage";
+import { Apply } from "@/components/substitute/Apply";
 
 export default function Page() {
-  return <StubPage title="Apply as a substitute" purpose="Join the Riverbend substitute pool in a few steps." points={["Apply", "Upload credentials", "AI verification, orientation, active"]} />;
+  return <Apply />;
 }

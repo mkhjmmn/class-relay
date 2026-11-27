@@ -106,7 +106,10 @@ export function useRepo() {
   const { repo, hydrated, session, setSession } = useCtx();
   const state = useRepoState();
   const user = session.userId ? state.users.find((u) => u.id === session.userId) : undefined;
-  const actor: Actor = user ? { userId: user.id, role: user.role, name: user.name } : { userId: "anonymous", role: "system", name: "Visitor" };
+  const actor: Actor = useMemo(
+    () => (user ? { userId: user.id, role: user.role, name: user.name } : { userId: "anonymous", role: "anonymous", name: "Visitor" }),
+    [user],
+  );
 
   /**
    * Execute a domain command as the current user. Shows a toast for Result values.

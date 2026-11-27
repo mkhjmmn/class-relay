@@ -1,6 +1,11 @@
 "use client";
-import { StubPage } from "@/components/shell/StubPage";
+import { Hydrated } from "@/components/shell/Page";
+import { SubstitutePool } from "@/components/district/MoreViews";
 
 export default function Page() {
-  return <StubPage title="Substitutes" purpose="The district substitute pool." points={["Tier, stage, reliability", "Credentials", "Pause or restore (human decision)"]} />;
+  return (
+    <Hydrated>
+      <SubstitutePool />
+    </Hydrated>
+  );
 }

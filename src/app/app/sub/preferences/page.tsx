@@ -1,6 +1,6 @@
 "use client";
-import { StubPage } from "@/components/shell/StubPage";
+import { SubPreferences } from "@/components/substitute/SubPreferences";
 
 export default function Page() {
-  return <StubPage title="Preferences" purpose="Grades, subjects, schools, days, distance and language." points={["Feeds matching and notifications", "Language of briefs", "Availability"]} />;
+  return <SubPreferences />;
 }

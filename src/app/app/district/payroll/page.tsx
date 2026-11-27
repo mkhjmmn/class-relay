@@ -1,6 +1,11 @@
 "use client";
-import { StubPage } from "@/components/shell/StubPage";
+import { Hydrated } from "@/components/shell/Page";
+import { Payroll } from "@/components/district/DistrictViews";
 
 export default function Page() {
-  return <StubPage title="Payroll" purpose="Pay runs with anomaly flags; humans approve before export." points={["Draft pay run", "Anomalies", "CSV export"]} />;
+  return (
+    <Hydrated>
+      <Payroll />
+    </Hydrated>
+  );
 }

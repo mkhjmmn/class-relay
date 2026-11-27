@@ -1,6 +1,12 @@
 "use client";
-import { StubPage } from "@/components/shell/StubPage";
+import { Suspense } from "react";
+import { LoadingState } from "@/components/shell/Page";
+import { Briefs } from "@/components/substitute/Briefs";
 
 export default function Page() {
-  return <StubPage title="Briefs" purpose="AI-built Sub Briefs for your accepted assignments." points={["Day at a glance", "Period-by-period plan", "Routines, supports, emergency steps"]} />;
+  return (
+    <Suspense fallback={<LoadingState />}>
+      <Briefs />
+    </Suspense>
+  );
 }

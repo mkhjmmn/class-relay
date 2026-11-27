@@ -1,6 +1,11 @@
 "use client";
-import { StubPage } from "@/components/shell/StubPage";
+import { Hydrated } from "@/components/shell/Page";
+import { Settings } from "@/components/district/MoreViews";
 
 export default function Page() {
-  return <StubPage title="Settings" purpose="District policy, rule pack, pay rules and data residency." points={["Rule pack", "Pay rules", "Residency and BYO key"]} />;
+  return (
+    <Hydrated>
+      <Settings />
+    </Hydrated>
+  );
 }

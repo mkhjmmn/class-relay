@@ -1,6 +1,11 @@
 "use client";
-import { StubPage } from "@/components/shell/StubPage";
+import { Hydrated } from "@/components/shell/Page";
+import { SchoolReports } from "@/components/school/SchoolViews";
 
 export default function Page() {
-  return <StubPage title="Reports" purpose="Fill rate and continuity for your school." points={["Fill rate", "Time to fill", "Continuity"]} />;
+  return (
+    <Hydrated>
+      <SchoolReports />
+    </Hydrated>
+  );
 }

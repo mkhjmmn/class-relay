@@ -1,6 +1,11 @@
 "use client";
-import { StubPage } from "@/components/shell/StubPage";
+import { Hydrated } from "@/components/shell/Page";
+import { CommandCenter } from "@/components/district/DistrictViews";
 
 export default function Page() {
-  return <StubPage title="Command center" purpose="District KPIs, alerts and the Relay Loop at a glance." points={["KPIs vs targets", "Open alerts", "Today's coverage"]} />;
+  return (
+    <Hydrated>
+      <CommandCenter />
+    </Hydrated>
+  );
 }

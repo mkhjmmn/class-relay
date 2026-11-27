@@ -1,0 +1,64 @@
+{
+  "generatedBy": "npm run evals",
+  "mode": "sample",
+  "passRate": 1,
+  "passed": 60,
+  "total": 60,
+  "agents": {
+    "orchestrator": {
+      "passed": 5,
+      "total": 5,
+      "failures": []
+    },
+    "intake": {
+      "passed": 6,
+      "total": 6,
+      "failures": []
+    },
+    "credential_verifier": {
+      "passed": 5,
+      "total": 5,
+      "failures": []
+    },
+    "matchmaker": {
+      "passed": 6,
+      "total": 6,
+      "failures": []
+    },
+    "dispatcher": {
+      "passed": 5,
+      "total": 5,
+      "failures": []
+    },
+    "lesson_continuity": {
+      "passed": 5,
+      "total": 5,
+      "failures": []
+    },
+    "prep_coach": {
+      "passed": 6,
+      "total": 6,
+      "failures": []
+    },
+    "compliance_sentinel": {
+      "passed": 5,
+      "total": 5,
+      "failures": []
+    },
+    "payroll": {
+      "passed": 5,
+      "total": 5,
+      "failures": []
+    },
+    "insights": {
+      "passed": 5,
+      "total": 5,
+      "failures": []
+    },
+    "guardian": {
+      "passed": 7,
+      "total": 7,
+      "failures": []
+    }
+  }
+}

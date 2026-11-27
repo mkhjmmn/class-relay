@@ -1,6 +1,11 @@
 "use client";
-import { StubPage } from "@/components/shell/StubPage";
+import { Hydrated } from "@/components/shell/Page";
+import { Compliance } from "@/components/district/DistrictViews";
 
 export default function Page() {
-  return <StubPage title="Compliance" purpose="Expiring and expired credentials, caps and review queue." points={["Credential review queue", "Rule-cited alerts", "Tasks"]} />;
+  return (
+    <Hydrated>
+      <Compliance />
+    </Hydrated>
+  );
 }

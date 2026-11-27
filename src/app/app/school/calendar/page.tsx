@@ -1,6 +1,11 @@
 "use client";
-import { StubPage } from "@/components/shell/StubPage";
+import { Hydrated } from "@/components/shell/Page";
+import { SchoolCalendar } from "@/components/school/SchoolViews";
 
 export default function Page() {
-  return <StubPage title="Calendar" purpose="Two-week coverage calendar for your school." points={["Absences by day", "Substitutes assigned", "Conflicts"]} />;
+  return (
+    <Hydrated>
+      <SchoolCalendar />
+    </Hydrated>
+  );
 }

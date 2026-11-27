@@ -1,6 +1,11 @@
 "use client";
-import { StubPage } from "@/components/shell/StubPage";
+import { Hydrated } from "@/components/shell/Page";
+import { Notifications } from "@/components/district/MoreViews";
 
 export default function Page() {
-  return <StubPage title="Notifications" purpose="Your notification center and SMS, email and WhatsApp outbox preview (nothing is sent in demo)." points={["In-app notifications", "Outbox preview", "Language per reader"]} />;
+  return (
+    <Hydrated>
+      <Notifications />
+    </Hydrated>
+  );
 }

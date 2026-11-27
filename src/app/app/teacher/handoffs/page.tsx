@@ -1,6 +1,6 @@
 "use client";
-import { StubPage } from "@/components/shell/StubPage";
+import { Handoffs } from "@/components/teacher/Handoffs";
 
 export default function Page() {
-  return <StubPage title="Handoffs" purpose="Return Handoffs from your substitutes." points={["What was taught", "Gaps and next steps", "Continuity score"]} />;
+  return <Handoffs />;
 }

@@ -1,6 +1,6 @@
 "use client";
-import { StubPage } from "@/components/shell/StubPage";
+import { Earnings } from "@/components/substitute/Earnings";
 
 export default function Page() {
-  return <StubPage title="Earnings" purpose="Timesheets, approvals and pay." points={["Timesheet per completed day", "Approval status", "Pay-period totals"]} />;
+  return <Earnings />;
 }

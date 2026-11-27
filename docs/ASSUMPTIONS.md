@@ -19,3 +19,15 @@ Every default chosen without asking. Format: decision, reason, how to change it.
 | A13 | Voice intake uses the Web Speech API when the browser supports it, with a typed fallback | No external speech service needed. | Replace with a server STT provider. |
 | A14 | Scaffolded with create-next-app (Next.js 16) and hand-written shadcn-style components on Radix primitives instead of the shadcn CLI | Saves time and avoids interactive prompts; same API shape. | `src/components/ui/index.tsx`. |
 | A15 | Times shown on dashboards for KPIs are computed from repository data; targets are labelled "Target" | Honesty rule: no invented metrics. | `src/data/queries.ts`. |
+
+- experience-builder: pay periods on the earnings screen are semi-monthly (1st-15th, 16th-end). Reason: there is no pay-period field on Timesheet. Change it in src/components/substitute/Earnings.tsx (period()).
+- experience-builder: the Prep Coach checklist task is marked when the substitute opens the coach link, because the coach route belongs to ai-engineer. Change it by calling setSession on the first coach answer.
+| S1 | Market figures on /presentation and /pitchdeck are order-of-magnitude **estimates** (~13,000 US districts, ~49M public-school students, NCES order of magnitude); the TAM uses a hypothetical $10-$20 per student per year | No market research was run during the build; the honesty rule requires labels and stated assumptions. | Edit `src/app/presentation/page.tsx` and `src/app/pitchdeck/page.tsx`. |
+| S2 | The ROI calculator assumes 180 school days, 5 admin minutes per fill with ClassRelay, a 5% residual unfilled rate and 45 minutes saved per avoided unfilled absence, all labelled "illustrative estimate" | These are design targets, not measurements; every one is visible next to the result. | Constants at the top of `src/components/story/RoiCalculator.tsx`. |
+
+- AI (ai-engineer): retrieval is lexical BM25 in both modes (AI_MODEL_EMBED=local-bm25); pgvector embeddings are a later swap behind `Provider.embed`. Reason: no embedding route without extra keys. Change: implement embed in provider.ts and score with cosine in retrieval.ts.
+- AI (ai-engineer): rate limit and spend cap are in-memory per server instance. Reason: no shared store in sandbox mode. Change: back `src/ai/limits.ts` with Supabase or Redis.
+
+- Governance (governance-writer): RLS reads role scopes from custom JWT claims (district_id, app_role, school_id, teacher_id, substitute_id) set by an auth hook. Reason: one isolation key for every policy. Change: edit the app_* helper functions at the top of supabase/migrations/0001_core.sql.
+- Governance: the DB audit hash is sha256(prev_hash || payload::text) per district, as specified; the in-browser chain (src/domain/audit.ts) hashes a canonical body. Both are verifiable; they are not byte-identical. Change: align the trigger to the canonical JSON if cross-verification is needed.
+- Governance: self-assessment scores on /audit are fixed, human-written and labelled as not computed.

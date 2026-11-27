@@ -1,6 +1,11 @@
 "use client";
-import { StubPage } from "@/components/shell/StubPage";
+import { Hydrated } from "@/components/shell/Page";
+import { Analytics } from "@/components/district/MoreViews";
 
 export default function Page() {
-  return <StubPage title="Analytics" purpose="Fill, time-to-fill, compliance, continuity and fairness." points={["Trends", "By school", "Fairness monitor"]} />;
+  return (
+    <Hydrated>
+      <Analytics />
+    </Hydrated>
+  );
 }

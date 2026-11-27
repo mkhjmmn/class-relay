@@ -1,2 +1,36 @@
 /** i18n strings for the story area: keys namespaced "story.*". English required; bn/es for key screens. */
-export const story = { en: {} as Record<string, string>, bn: {} as Record<string, string>, es: {} as Record<string, string> };
+export const story = {
+  en: {
+    "story.presentation.title": "ClassRelay presentation",
+    "story.pitchdeck.title": "Pitch deck",
+    "story.architecture.title": "Architecture",
+    "story.docs.title": "Documentation",
+    "story.prompt.title": "The Master Prompt",
+    "story.estimate": "Estimate",
+    "story.target": "Target",
+    "story.hypothetical": "Hypothetical",
+    "story.traction": "Pre-launch: no customers, no pilots, no revenue yet. Demo with synthetic data.",
+  } as Record<string, string>,
+  bn: {
+    "story.presentation.title": "ClassRelay উপস্থাপনা",
+    "story.pitchdeck.title": "পিচ ডেক",
+    "story.architecture.title": "স্থাপত্য",
+    "story.docs.title": "নথিপত্র",
+    "story.prompt.title": "মাস্টার প্রম্পট",
+    "story.estimate": "আনুমানিক",
+    "story.target": "লক্ষ্য",
+    "story.hypothetical": "অনুমানমূলক",
+    "story.traction": "প্রাক-উদ্বোধন: এখনও কোনো গ্রাহক, পাইলট বা আয় নেই। কৃত্রিম ডেটা দিয়ে ডেমো।",
+  } as Record<string, string>,
+  es: {
+    "story.presentation.title": "Presentación de ClassRelay",
+    "story.pitchdeck.title": "Presentación para inversores",
+    "story.architecture.title": "Arquitectura",
+    "story.docs.title": "Documentación",
+    "story.prompt.title": "El Prompt Maestro",
+    "story.estimate": "Estimación",
+    "story.target": "Objetivo",
+    "story.hypothetical": "Hipotético",
+    "story.traction": "Prelanzamiento: aún sin clientes, pilotos ni ingresos. Demo con datos sintéticos.",
+  } as Record<string, string>,
+};
