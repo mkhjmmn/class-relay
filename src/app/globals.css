@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/* ClassRelay design tokens: deep blue + teal with a warm amber accent. All text pairs meet WCAG 2.2 AA. */
+@theme {
+  --color-brand-50: #eef4ff;
+  --color-brand-100: #dbe6fe;
+  --color-brand-200: #bfd3fe;
+  --color-brand-300: #93b4fd;
+  --color-brand-400: #608dfa;
+  --color-brand-500: #3b68f5;
+  --color-brand-600: #254bea;
+  --color-brand-700: #1d39d0;
+  --color-brand-800: #1e31a8;
+  --color-brand-900: #1c2e85;
+  --color-brand-950: #121c4f;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Noto Sans Bengali", sans-serif;
+  --radius-2xl: 1rem;
+}
+
+:root {
+  --focus: #f59e0b;
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f6f8fc;
+  color: #0f172a;
+  font-family: var(--font-sans);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0.5rem;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 0.5rem;
+  background: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+}
+
+/* Low-bandwidth mode: no animations, no shadows, no decorative gradients */
+.low-bandwidth * {
+  animation: none !important;
+  transition: none !important;
+  box-shadow: none !important;
+  background-image: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media print {
+  header,
+  footer,
+  nav,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+}

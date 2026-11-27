@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --legacy-peer-deps
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Lint
+        run: npm run lint
+      - name: Unit tests (rules engine, relay loop)
+        run: npm test
+      - name: Agent evals
+        run: npm run evals
+      - name: Build
+        run: npm run build
+      - name: Dependency audit
+        run: npm audit --omit=dev --audit-level=high
+      - name: Secret scan
+        run: |
+          if git grep -nE "sk-ant-[A-Za-z0-9_-]{20,}|SUPABASE_SERVICE_ROLE_KEY=ey|BEGIN (RSA|EC) PRIVATE KEY" -- ':!.env.example'; then
+            echo "Possible secret committed"; exit 1; fi
+      - name: Install Playwright
+        run: npx playwright install --with-deps chromium
+      - name: Route smoke test
+        run: npx playwright test tests/routes.spec.ts
